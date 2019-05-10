@@ -254,5 +254,6 @@ void compact_pool(string_pool* pool)
 		}
 		ptr += ((size_t)*ptr + end_of_str + additional_bytes);
 	}
-	pool->used = free_space_begin - pool->str;
+	if(free_space_begin != nullptr)
+		pool->used = free_space_begin - pool->str;
 }
